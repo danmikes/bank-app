@@ -1,0 +1,236 @@
+html {
+    background-color: #ffad16;
+    color: #66000a;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(6, [col] 1fr);
+    grid-template-rows: auto auto 1fr auto;
+    grid-gap: 0.5em;
+    margin: 0;
+    padding: 0;
+}
+
+header, nav, footer {
+    grid-column: col 1 / span 6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.7)), url("bee.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+nav {
+    padding: 0;
+}
+
+article {
+}
+
+.block {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(6, [col] 1fr);
+    grid-gap: 0;
+}
+
+footer {
+    margin-bottom: 1em;
+}
+
+h1, h2, h3, h4 {
+    margin: 0.3em;
+}
+h1 {
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.5em;
+}
+h3 {
+    font-size: 1em;
+}
+
+p {
+    padding: 0 1em;
+    text-align: center;
+    margin: 0.3em;
+}
+
+button {
+    background-color: #ffa;
+    width: 2fr;
+    cursor: pointer;
+    padding: 0.2em;
+    font-size: 1em;
+    font-weight: bold;
+    color: #750;
+    padding: 0.5em;
+}
+
+button:hover {
+    background-color: #ff4;
+}
+
+/* 
+fr is een 'fractional unit' 
+
+"6, [col] 1fr" betekent dus 6 kolommen, waarvan 
+elke kolom exact 1 deel van het geheel beslaat
+*/
+
+.item, .block {
+    padding: 0.1em;
+}
+
+/* 
+Kolom-indeling specificeer je per grid-item
+Bijvoorbeeld "grid-column: col 5 / span 4" is een item 
+dat op kolom 5 begint en 4 kolommen aan horizontale ruimte inneemt
+*/
+
+.col11 {
+    grid-column: col 3 / span 2;
+}
+
+.col21 {
+    grid-column: col 1 / span 3;
+}
+
+.col22 {
+    grid-column: col 4 / span 3;
+}
+
+.col24 {
+     grid-column: col 2 / span 4;
+ }
+
+.col31 {
+    grid-column: col 1 / span 2;
+}
+
+.col32 {
+    grid-column: col 3 / span 2;
+}
+
+.col33 {
+    grid-column: col 5 / span 2;
+}
+.col61 {
+    grid-column: col 1 / span 6;
+}
+
+.cel11 {
+    grid-column: col 1 / span 6;
+}
+
+.cel21 {
+    grid-column: col 1 / span 3;
+}
+
+.cel22 {
+    grid-column: col 4 / span 3;
+}
+
+.cel31 {
+    grid-column: col 1 / span 2;
+}
+
+.cel32 {
+    grid-column: col 3 / span 2;
+}
+
+.cel33 {
+    grid-column: col 5 / span 2;
+}
+
+.cel41 {
+    grid-column: col 1 / span 2;
+}
+
+.cel42{
+    grid-column: col 3 / span 2;
+}
+
+.cel43 {
+    grid-column: col 5 / span 1;
+}
+
+.cel44 {
+    grid-column: col 6 / span 1;
+}
+.cel412 {
+    grid-column: col 1 / span 2;
+}
+.cel431 {
+    grid-column: col 3 / span 1;
+}
+.cel441 {
+    grid-column: col 4 / span 1;
+}
+.cel452 {
+    grid-column: col 5 / span 2;
+}
+
+.cel21, .cel31, cel32, .cel41, .cel42, .cel43 {
+    text-align: left;
+}
+
+.cel22, .cel33, .cel44 {
+    text-align: right;
+}
+
+
+/* 
+START MEDIA QUERIES VOOR VERSCHILLENDE APPARATEN
+*/
+
+@media screen and (min-width: 980px) /* Desktop */ {
+    body {
+    }
+}
+
+@media screen and (max-width: 979px) /* Tablet */ {
+    body {
+    }
+}
+
+@media screen and (max-width: 700px) /* Mobile */ {
+    body {
+        font-size: 1.3em;
+    }
+
+    .col11 {
+        grid-column: col / span 6;
+    }
+    
+    .col21, .col22 {
+        grid-column: col / span 6;
+    }
+
+    .col31, .col33 {
+        grid-column: col / span 3;
+    }
+
+    .col32 {
+        grid-column: col 4 / span 3;
+    }
+    
+}
+
+@media screen and (max-width: 550px) /* TinyMobile */ {
+    .col21, .col22, .col31, .col32, .col33 {
+        grid-column: col / span 6;
+    }
+}

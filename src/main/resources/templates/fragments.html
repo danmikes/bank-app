@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+    <title>Welkom bij de Beehive Bank</title>
+    <link rel="stylesheet" type="text/css" href="newstyle.css"/>
+    <link rel="shortcut icon" type="image/png" href="bee.png">
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/9078819aff.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="main-nav" th:fragment="nav">
+    <ul>
+        <li><img class="logo" src="bee.png" alt="logo"></li>
+        <li><a href="index.html" id="beehive">BeeHive Bank</a></li>
+    </ul>
+    <ul>
+        <li><a th:href="logout">Uitloggen</a></li>
+    </ul>
+</nav>
+<div th:fragment="clockwelcome" th:remove="tag">
+<script th:inline="javascript">
+    var myVar = setInterval(myTimer, 1000);
+    function myTimer() {
+        /*<![CDATA[*/
+        var d = new Date();
+        var username = /*[[${header}]]*/ 'NOvalue';
+        document.getElementById("clock").innerHTML = username + " " + d.toLocaleTimeString();
+        /*]]>*/
+    }
+    myTimer();
+</script>
+</div>
+</body>
+</html>

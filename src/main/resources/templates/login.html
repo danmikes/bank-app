@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+
+<body>
+
+<!------- Navigation -------->
+<nav class="main-nav">
+    <ul>
+        <li><img class="logo" src="bee.png" alt="logo"></li>
+        <li><a href="index.html" id="beehive">BeeHive Bank</a></li>
+    </ul>
+    <ul>
+        <li><a href="openAccount">Rekening Openen</a></li>
+    </ul>
+</nav>
+
+<!------- Main Content ------->
+<div class="login-box">
+    <h1>Login</h1>
+    <form id="loginForm" action="#" method="post" th:action="@{loginHandler}" th:object="${user}">
+    <div class="textbox">
+        <i class="fas fa-users"></i>
+        <input th:field="*{username}" type="text" placeholder="Gebruikersnaam" name="" value="">
+    </div>
+
+    <div class="textbox">
+        <i class="fas fa-lock"></i>
+        <input th:field="*{password}" type="password" placeholder="Wachtwoord" name="" value="">
+    </div>
+    <div class="textbox">
+        <label th:text="${feedback}"></label>
+    </div>
+        <button href="loginForm">Inloggen</button>
+    </form>
+    <div class="textbox">
+        <button class='wachtwoordVergeten'><a href="loginForgot">Wachtwoord vergeten</a></button>
+    </div>
+</div>
+
+<!--------- Footer --------->
+<footer>
+    <p>BeeHive Bank &copy; 2019</p>
+</footer>
+
+</body>
+</html>
+

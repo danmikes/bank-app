@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+
+<!-------- Navigation -------->
+<nav class="main-nav">
+    <ul>
+        <li><img class="logo" src="bee.png" alt="logo"></li>
+        <li><a href="index.html" id="beehive">BeeHive Bank</a></li>
+    </ul>
+    <ul>
+        <li><a href="login">Inloggen</a></li>
+        <li><a href="openAccount">Rekening Openen</a></li>
+    </ul>
+</nav>
+
+<!------- Main Content ------->
+<div class="login-box">
+    <h1>Wachtwoord vergeten?</h1>
+    <form id="loginforgotform" action="#" th:action="@{loginForgotHandler}" th:object="${user}" method="post">
+        <div class="textbox">
+            <i class="fas fa-users"></i>
+            <input type=text placeholder="Vul je gebruikersnaam in" th:field="*{username}" required/>
+        </div>
+
+        <div class="textbox">
+            <button type="submit" form="loginforgotform">Wachtwoord opvragen</button>
+        </div>
+        <div class="textbox">
+            <label th:text="${feedback}"></label>
+        </div>
+    </form>
+</div>
+
+<!--------- Footer --------->
+<footer>
+    <p>BeeHive Bank &copy; 2019</p>
+</footer>
+
+</body>
+</html>

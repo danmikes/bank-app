@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+
+
+<body>
+
+<!--------- Navigation --------->
+<nav th:insert="fragments.html :: nav"></nav>
+<!-------- Main Content -------->
+<article>
+    <!------- Internal Navigation ------->
+    <nav class="customer-nav">
+            <span th:each="link : ${allLinks}">
+                <a th:href="@{${link.getKey()}}"><button th:text="${link.getValue() }"></button></a>
+            </span>
+    </nav>
+
+    <h3 th:text="${textComplete}"></h3>
+
+    <a class="knopje" th:href="@{customerPage}">Ga naar je account</a>
+</article>
+
+<!--------- Footer --------->
+<footer>
+    <p>BeeHive Bank &copy; 2019</p>
+</footer>
+
+</body>
+</html>

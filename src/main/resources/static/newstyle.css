@@ -1,0 +1,387 @@
+body {
+    font-family: tahoma;
+    padding: 0;
+    margin: 0;
+    line-height: 1.5;
+    background: url("honeycomb2.jpg");
+    background-repeat: repeat;
+    background-position: center center;
+}
+
+
+/* -------------- Navigation ---------------*/
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10%;
+    position: sticky;
+    top: 0;
+    background-color: #2a1a5e;
+    border-top:#FFD700 2px solid;
+    border-bottom:#FFD700 3px solid;
+    /*background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.7)), url("bee.png");*/
+    /*background-repeat: repeat;*/
+    /*background-position: center center;*/
+}
+
+.main-nav ul {
+    margin: 5px;
+}
+
+.main-nav ul li{
+    display: inline-block;
+    list-style: none;
+    padding: 0px 0px;
+    font-size: 0.8rem;
+
+}
+
+.main-nav img{
+    width: 50px;
+    margin-right: auto;
+}
+
+.main-nav a{
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    background: #FFD700;
+    color: #000;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    margin: 0.3rem;
+    padding: 0.8rem;
+    position: relative;
+    align-items: stretch;
+}
+
+.main-nav a:hover {
+    background:#FF8C00;
+    color:#fff;
+}
+
+#beehive {
+    float: left;
+    margin-right: left;
+    color:  #FFD700;
+    background-color: #2a1a5e;
+    font-size: 2.1rem;
+    padding: 0;
+    /*margin-right: 40%;*/
+}
+
+#beehive:hover{
+    color: #fff;
+}
+
+
+/* --------------- Section ---------------- */
+section {
+    text-align: center;
+    padding: 10px;
+    margin: 60px;
+    background-color: #fbe555;
+    background-size: cover;
+    border: #000 2px solid;
+    width: 90%;
+    border-radius: 25px;
+}
+
+section h1{
+    font-size: 2.6rem;
+}
+
+section p{
+    font-size: 1.4rem;
+}
+
+section a{
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #2a1a5e;
+    color:  #FFD700;
+    border: #000 1px solid;
+    border-radius: 25px;
+    font-size: 1.4rem;
+    padding: 1rem;
+    /*margin: 1% 40%;*/
+    transition: all 0.3s ease 0s;
+    width: 15%;
+}
+
+section a:hover {
+    background:#FF8C00;
+    color:#fff;
+}
+
+.formlabel {
+    width: 200px;
+    display: inline-block;
+    text-align: left;
+    font-weight: 500;
+}
+
+.knopje {
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #2a1a5e;
+    color:  #FFD700;
+    border: #000 1px solid;
+    border-radius: 25px;
+    font-size: 1.4rem;
+    padding: 0.6rem;
+    margin: 0;
+    transition: all 0.3s ease 0s;
+    width: 10%;
+}
+
+.knopje:hover {
+    background:#FF8C00;
+    color:#fff;
+}
+
+/* ----------- TransactionConfirm -----------------*/
+.test {
+    padding: 5px;
+    margin: 5px;
+}
+
+.transactionlabel {
+    width: 220px;
+    display: inline-block;
+    text-align: left;
+    font-weight: 500;
+}
+
+.display {
+    width: 180px;
+    display: inline-block;
+    text-align: right;
+    font-weight: 500;
+}
+
+.overschijving {
+    text-decoration: none;
+    color: #FFD700;
+    font-size: 0.8rem;
+    margin: 10px;
+}
+
+.overschijving:hover{
+    color: #fff;
+}
+
+/* -------------- Customer Page ------------------*/
+
+article {
+    text-align: center;
+    margin: 60px 15%;
+    background-color: #fbe555;
+    background-size: cover;
+    border: #000 2px solid;
+    width: 70%;
+    border-radius: 20px;
+}
+
+article .customer-nav {
+    display: flex;
+    justify-content: center;
+}
+
+article .welcome {
+    font-weight: 700;
+    padding: 15px;
+    font-size: 1.2rem;
+}
+
+article h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.rekeningen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0px;
+    margin: 0;
+    border-bottom: 2px solid #FFD700;
+}
+
+.icon {
+    display: inline-block;
+    width: 40px;
+
+}
+
+.rekeningnaam {
+    display: inline-block;
+    width: 500px;
+    text-align: left;
+
+}
+
+.saldo {
+    display: inline-block;
+    width: 80px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.rekeningen a{
+    text-decoration: none;
+    transition: 0.5s;
+    padding: 5px;
+    border-radius: 15px
+}
+
+.rekeningen a:hover{
+    background: #2a1a5e;
+    color: #FFD700;
+}
+
+/*---------- Mijn Gegevens Wijzigen -----------*/
+
+.accountlabel {
+    width: 280px;
+    display: inline-block;
+    text-align: left;
+    font-weight: 500;
+}
+
+/*--------------- Overboeken -----------------*/
+.transferlabel {
+    min-width: 200px;
+    display: inline-block;
+    text-align: left;
+}
+
+/*-----------Rekening Toevoegen --------------*/
+.toevoegen {
+    font-size: 2rem;
+}
+
+/* ----------------- Login -------------------*/
+.login-box {
+    grid-column: 6/7;
+    text-align: center;
+    margin: 3% 30%;
+    margin-bottom: 6%;
+    background-color: #fbe555;
+    background-size: cover;
+    border: #000 2px solid;
+    border-radius: 15px;
+}
+
+.login-box h1 {
+    font-size: 2rem;
+    border-bottom: 3px solid #FFD700;
+}
+
+.textbox {
+    overflow: hidden;
+    padding: 1.3rem;
+    margin: 0.2rem;
+    border-bottom: 1px solid #FFD700;
+}
+
+.textbox input {
+    background: white;
+    grid-column: 6/7;
+    border-radius: 15px;
+    padding: 0.7rem;
+
+}
+
+button {
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #2a1a5e;
+    color:  #FFD700;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    padding: 0.8rem;
+    margin: 0.2rem;
+}
+
+button:hover {
+    background:#FF8C00;
+    color:#fff;
+}
+
+.wachtwoordVergeten {
+    font-size: 0.8rem;
+    color: #2a1a5e;
+    background-color: #fbe555;
+    border: none;
+    text-decoration: underline;
+    font-weight: bold;
+    margin: 0;
+}
+
+.wachtwoordVergeten:hover {
+    background:#FF8C00;
+    color:#fff;
+}
+
+
+/*-------------- Open Account -------------------*/
+.openAccount-box {
+    text-align: center;
+    margin: 3% 25%;
+    margin-bottom: 6%;
+    background-color: #fbe555;
+    border: #000 2px solid;
+    background-size: cover;
+    border-radius: 15px;
+}
+
+.openAccount-box h1 {
+    font-size: 2rem;
+    border-bottom: 3px solid #FFD700;
+}
+
+.accountbox {
+    overflow: hidden;
+    padding: 0.3rem;
+    margin: 0.0rem;
+    border-bottom: 2px solid #FFD700;
+}
+
+input, select {
+    background: white;
+    grid-column: 5/8;
+    border-radius: 10px;
+    padding: 0.3rem 1.8rem;
+}
+
+.accountbox h4{
+    display: inline-block;
+    font-size: 0.9rem;
+
+}
+
+
+/* ---------------- Footer ------------------ */
+footer {
+    grid-column: 1/13;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #2a1a5e;
+    text-align: center;
+    border-top:#FFD700 3px solid;
+    border-bottom:#FFD700 2px solid;
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #FFD700;
+}

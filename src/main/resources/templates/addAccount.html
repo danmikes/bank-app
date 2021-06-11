@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+<!--------- Navigation --------->
+<nav th:insert="fragments.html :: nav"></nav>
+<!-------- Main Content -------->
+<article>
+    <!------- Internal Navigation ------->
+    <nav class="customer-nav">
+        <span th:each="link : ${allLinks}">
+            <a th:href="@{${link.getKey()}}"><button th:text="${link.getValue() }"></button></a>
+        </span>
+    </nav>
+
+    <div class="accountbox">
+        <h1 class="toevoegen">Rekening toevoegen</h1>
+    </div>
+
+     <form th:action="@{addAccountHandler}">
+        <h2 class="test">Wilt u een zakelijke of particuliere rekening openen?</h2>
+        <p>
+            <input type="radio" name="TypeAccount" value="RETAIL_CHECKING" required>Particuliere rekening</input>
+            <input type="radio" name="TypeAccount" value="zakelijk" required>Zakelijke rekening</input>
+        </p>
+
+        <button type="submit">Open rekening</button>
+     </form>
+</article>
+
+<!--------- Footer --------->
+<footer>
+    <p>BeeHive Bank &copy; 2019</p>
+</footer>
+
+</body>
+</html>

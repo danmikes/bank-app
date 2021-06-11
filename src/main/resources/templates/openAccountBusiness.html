@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body class="grid">
+
+<!-------- Navigation -------->
+<nav class="main-nav">
+    <ul>
+        <li><img class="logo" src="bee.png" alt="logo"></li>
+        <li><a href="index.html" id="beehive">BeeHive Bank</a></li>
+    </ul>
+    <ul>
+        <li><a href="login">Inloggen</a></li>
+    </ul>
+</nav>
+
+<!---------- Main Content ---------->
+<div class="openAccount-box">
+    <h3 th:text="'Welkom '+ ${naam} + ', vul hieronder je bedrijfsgegevens in.'"></h3>
+    <form  id="saveCompanyForm" th:action="@{saveCompany}" th:object="${company}" method="post"/>
+
+    <p>
+        <label class="formlabel" for="naam">Naam van het bedrijf * :</label>
+        <input type="text" id="naam" th:value="${companyName}" name="companyName" placeholder="Naam van het bedrijf" required>
+    </p>
+
+    <p>
+        <label class="formlabel" for="kvk">KVK-nummer * :</label>
+        <input type="number" id="kvk" th:value="${kvk}" name="kvk" placeholder="KVK-nummer" required>
+    </p>
+
+    <p>
+        <label class="formlabel" for="sector">Sector * :</label>
+        <select id="sector" name="sector">
+            <option th:each="sector : ${sectoren}" th:value="${sector.label}" th:text="${sector.label}"></option>
+        </select>
+    </p>
+
+    <button type="submit" value="Verzenden" form="saveCompanyForm">Verzenden</button>
+    </form>
+</div>
+
+<!--------- Footer  -------->
+<footer>
+    <p>BeeHive Bank &copy; 2019</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+
+<!--------- Navigation --------->
+<nav th:insert="fragments.html :: nav"></nav>
+<!-------- Main Content -------->
+<article>
+    <!------- Internal Navigation ------->
+    <nav class="customer-nav">
+        <span th:each="link : ${infoLinks}">
+            <a th:href="@{${link.getKey()}}"><button th:text="${link.getValue() }"></button></a>
+        </span>
+    </nav>
+
+    <!-------- Welcome User -------->
+    <div class="welcome" id="clock"></div>
+
+    <!--------Inloggegevens-------->
+    <div class="accountbox">
+        <form id="changeLogin" th:action="@{userChangeLoginHandler}" th:object="${user}" method="post">
+            <h2>Inloggegevens:</h2>
+            <p>
+                <label class="accountlabel" th:text="'Gebruikersnaam: ' + ${user.getUsername()}"></label>
+                <input type="text" th:field="*{username}" required/>
+            </p>
+            <p>
+                <label class="accountlabel" th:text="'Wachtwoord: ' + ${user.getPassword()}"></label>
+                <input type="text" th:field="*{password}" required/>
+            </p>
+
+            <h2>Persoonlijke gegevens:</h2>
+            <p>
+                <label class="accountlabel" th:text="'Voornaam:   ' + ${user.getFirstName()}"></label>
+                <input type="text" th:field="*{firstName}" required>
+            </p>
+            </p>
+                <label class="accountlabel"  th:text="'Achternaam: ' + ${user.getLastName()}"></label>
+                <input type="text" th:field="*{lastName}" required>
+            </p>
+            <p>
+                <label class="accountlabel"  th:text="'Email: ' + ${user.getEmail()}"></label>
+                <input type="email" th:field="*{email}" required/>
+            </p>
+            <p>
+                <label class="accountlabel"  th:text="'Telefoonnummer: ' + ${user.getTelephone()}"></label>
+                <input type="text" th:field="*{telephone}" required/>
+            </p>
+            <button type="submit">Wijzigen</button>
+        </form>
+    </div>
+
+    <!------- Adres gegevens ------->
+    <div class="accountbox">
+        <form th:if="${customer != null}" id="adres" th:action="@{customerAdresChangeHandler}" th:object="${customer}"
+              method="post">
+            <h2>Adres gegevens:</h2>
+            <p>
+                <label class="accountlabel" th:text="'Straat: ' + ${customer.getStreet()}"></label>
+                <input type="text" th:field="*{street}" required/>
+            </p>
+            <p>
+                <label class="accountlabel" th:text="'Huisnummer: ' + ${customer.getHouseNumber()}"></label>
+                <input type="text" th:field="*{houseNumber}" required/>
+            </p>
+            <p>
+                <label class="accountlabel" th:text="'Toevoeging: ' + ${customer.getHouseSuffix()}"></label>
+                <input type="text" th:field="*{houseSuffix}"/>
+            </p>
+            <p>
+                <label class="accountlabel" th:text="'Postcode: ' + ${customer.getZipCode()}"></label>
+                <input type="text" th:field="*{zipCode}" required/>
+            </p>
+            <p>
+                <label class="accountlabel" th:text="'Woonplaats: ' + ${customer.getCity()}"></label>
+                <input type="text" th:field="*{city}" required/>
+            </p>
+            <p>
+                <label class="accountlabel" th:text="'Land: ' + ${customer.getCountry()}"></label>
+                <input type="text" th:field="*{country}" required/>
+            </p>
+            <button type="submit">Wijzigen</button>
+        </form>
+    </div>
+</article>
+
+<!--------- Footer --------->
+<footer>
+    <p>BeeHive Bank &copy; 2019</p>
+</footer>
+<div th:replace="fragments.html :: clockwelcome"></div>
+</body>
+</html>

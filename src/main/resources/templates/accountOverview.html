@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+
+<!--------- Navigation --------->
+<nav th:insert="fragments.html :: nav"></nav>
+<!-------- Main Content -------->
+<article>
+  <!------- Internal Navigation ------->
+  <nav class="customer-nav">
+        <span th:each="link : ${allLinks}">
+            <a th:href="@{${link.getKey()}}"><button th:text="${link.getValue() }"></button></a>
+        </span>
+  </nav>
+
+  <!---------- Welcome User ----------->
+    <div class="welcome" id="clock"></div>
+
+  <!--------  Transaction Overview -------->
+  <div class="rekeningen">
+    <div class="rekeningnaam">
+        <h1 th:text="${account.getType()}"></h1>
+        <span th:text="${account.displayAccountHolders()}"></span>
+        <span>  •  </span>
+        <span th:text="${account.iban}"></span>
+    </div>
+      <div class="saldo">
+        <span th:text="${account.balanceToString()}"></span>
+    </div>
+  </div>
+
+  <div class="accountbox">
+      <div class="rekeningen" th:each="transaction : ${transactionHistory}">
+<!--          <span th:text="${transaction}"></span>-->
+          <p th:if="${transaction.split(',')[3].equals(' ')}" th:text="${transaction.split(',')[1]}"></p>
+          <a th:unless="${transaction.split(',')[3].equals(' ')}" th:href="@{transactionDetails(id=${transaction.split(',')[3]})}">
+              <div class="icon">
+                  <i class="fas fa-calendar-day"></i>
+              </div>
+              <div class="rekeningnaam">
+                <span th:text="${transaction.split(',')[0]}"></span>
+                <span>  •  </span>
+                <span th:text="${transaction.split(',')[1]}"></span>
+              </div>
+              <div class="saldo">
+<!--                  <span>  €  </span>-->
+                  <span th:text="${transaction.split(',')[2]}"></span>
+              </div>
+          </a>
+      </div>
+  </div>
+
+<!--  th:style="${transaction.contains('van')} ? 'color:black' : 'color:red'"-->
+
+</article>
+
+  <!--------- Footer --------->
+<footer>
+    <p>BeeHive Bank &copy; 2019</p>
+</footer>
+<div th:replace="fragments.html :: clockwelcome"></div>
+</body>
+</html>

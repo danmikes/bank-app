@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+
+<!--------- Navigation --------->
+<nav th:insert="fragments.html :: nav"></nav>
+<!-------- Main Content -------->
+<article>
+    <!------- Internal Navigation ------->
+    <nav class="customer-nav">
+        <span>
+            <a th:href="@{userInfo}"><button>Mijn gegevens</button></a>
+        </span>
+    </nav>
+
+    <div class="welcome" id="clock"></div>
+
+    <h3>Top tien particuliere rekeningen op saldo</h3>
+
+    <div th:unless="${#lists.isEmpty(topAccounts)}">
+<!--        <div class="rekeningen">-->
+<!--            <span class="rekeningnaam">iban</span>-->
+<!--            <span>houder</span>-->
+<!--            <span class="saldo">saldo</span>-->
+<!--        </div>-->
+        <div class="rekeningen" th:each="account : ${topAccounts}">
+            <div class="icon">
+                <i class="fas fa-euro-sign"></i>
+            </div>
+            <div class="rekeningnaam">
+<!--                <h4 th:text="${account.getType()}"></h4>-->
+                <span th:text="${account.iban}"></span>
+                <span>  •  </span>
+                <span th:text="${account.holders.get(0).firstName}"></span>
+                <span th:text="${account.holders.get(0).lastName}"></span>
+            </div>
+            <div class="saldo">
+                <span th:text="${account.balanceToString()}"></span>
+            </div>
+        </div>
+    </div>
+</article>
+
+<!--------- Footer --------->
+<footer>
+    <p>BeeHive Bank &copy; 2019</p>
+</footer>
+<div th:replace="fragments.html :: clockwelcome"></div>
+</body>
+</html>

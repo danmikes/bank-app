@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welkom bij de Beehive Bank</title>
+    <link rel="stylesheet" type="text/css" href="newstyle.css"/>
+    <link rel="shortcut icon" type="image/png" href="bee.png">
+    <meta charset="UTF-8">
+    <script language='javascript' type='text/javascript'>
+        function check(input) {
+            if (input.value != document.getElementById('password').value) {
+                input.setCustomValidity('Password Must be Matching.');
+            } else {
+                // input is valid -- reset the error message
+                input.setCustomValidity('');
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<!-------- Navigation -------->
+<nav class="main-nav">
+    <ul>
+        <li><img class="logo" src="bee.png" alt="logo"></li>
+        <li><a href="index.html" id="beehive">BeeHive Bank</a></li>
+    </ul>
+    <ul>
+        <li><a href="login">Inloggen</a></li>
+    </ul>
+</nav>
+
+<!--TODO Gaan naar een *{customer.firstname} structuur-->
+
+<!------- Main Content ------->
+<div class="openAccount-box">
+    <form id="accountForm" th:action="@{save}" th:object="${customer}" method="post">
+    <h1>Rekening Openen</h1>
+        <h3><label class="feedback" th:name="feedback" th:text="${feedback}"/></h3>
+    <div class="accountbox">
+        <label class="formlabel" type="text">Voornaam: *</label>
+        <input type="text" th:field="*{firstName}" pattern="[A-Za-z ]+" placeholder="Voornaam" title="alleen letters" value="" required>
+    </div>
+
+     <div class="accountbox">
+        <label class="formlabel" type="text">Achternaam: *</label>
+        <input type="text" th:field="*{lastName}" pattern="[A-Za-z ]+" placeholder="Achternaam" title="alleen letters" value="" required>
+    </div>
+
+    <div class="accountbox">
+        <label class="formlabel" type="text">Straatnaam: *</label>
+        <input type="text" th:field="*{street}" pattern="[A-Za-z ]+" placeholder="Straatnaam" title="alleen letters" value="" required>
+    </div>
+
+    <div class="accountbox">
+        <label class="formlabel" type="text">Huisnummer: *</label>
+        <input type="number" th:field="*{houseNumber}" pattern="[0-9]+" placeholder="Huisnummer" name="houseNumber"
+               title="alleen nummers" value="" required>
+    </div>
+
+    <div class="accountbox">
+        <label class="formlabel" type="text">Toevoeging:</label>
+        <input type="text" th:field="*{houseSuffix}" placeholder="Toevoeging" name="" value="">
+    </div>
+
+    <div class="accountbox">
+        <label class="formlabel" type="text">Postcode: *</label>
+        <input id="zipCode" type="text" th:field="*{zipCode}" pattern="[0-9]{4}[A-Za-z]{2}"
+               placeholder="Postcode" name="zipCode" title="4 letters en 2 numbers" value="" required>
+    </div>
+
+    <div class="accountbox">
+        <label class="formlabel" type="text">Woonplaats: *</label>
+        <input type="text" placeholder="Woonplaats" th:field="*{city}" pattern="[A-Za-z ]+"
+               title="alleen letters" name="" value="" required>
+    </div>
+
+    <div class="accountbox">
+        <label class="formlabel" type="text">Land: *</label>
+        <input type="text" th:field="*{country}" pattern="[a-zA-Z ]+" title="alleen letters"
+               placeholder="Land" name="" value="" required>
+    </div>
+
+    <div class="accountbox">
+        <label class="formlabel" type="text">E-mailadres: *</label>
+        <input type="email" th:field="*{email}"  title="alleen een geldig e-mailadres"
+               placeholder="E-mailadres" name="" value="" required>
+    </div>
+
+    <div class="accountbox">
+        <label class="formlabel" type="text">Telefoonnummer: *</label>
+        <input type="tel" placeholder="Telefoonnummer" th:field="*{telephone}"
+               pattern="[a-zA-Z0-9- ]+" title="alleen een geldig telefoonnummer" name="" value="" required>
+    </div>
+
+    <div class="accountbox">
+        <label class="formlabel" type="text">BSN-nummer: *</label>
+        <input type="number" th:field="*{bsn}" pattern="[1-9]{1}[0-9]{9}"
+               title="alleen een geldig BSN nummer met 9 cijfers" placeholder="BSN nummer" name="bsn" value="" required>
+    </div>
+
+    <div class="accountbox">
+        <label class="formlabel" type="text">Geboortedatum: *</label>
+        <input type="date" th:field="*{birthDate}"
+               pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" title="dd-mm-yyyy" placeholder="Geboortedatum" name="birthDate" value="" required>
+    </div>
+        <div class="accountbox">
+         <label class="formlabel" type="text">Gebruikersnaam: *</label>
+        <input type="text" th:field="*{username}" placeholder="Gebruikersnaam" name="" value="" required>
+    </div>
+
+    <div class="accountbox">
+        <label class="formlabel" type="text">Wachtwoord: *</label>
+        <input type="password" th:field="*{password}" placeholder="Wachtwoord" name="password" value="" required>
+    </div>
+
+    <div class="accountbox">
+        <label class="formlabel" type="text">Herhaal wachtwoord: *</label>
+        <input type="password" th:value="${passwordConfirm}" oninput="check(this)" placeholder="Herhaal Wachtwoord"
+               title="herhaal het wachtwoord" name="passwordConfirm" value="" required>
+    </div>
+
+    <div class="accountbox" id="radiobutton">
+        <h4>Wat voor type rekening wil je?</h4><br>
+        <input type="radio" name="TypeAccount" value="RETAIL_CHECKING" required>Particuliere rekening</input>
+        <input type="radio" name="TypeAccount" value="BUSINESS_CH" required>Zakelijke rekening</input>
+    </div>
+
+        <button type="submit">Vraag rekening aan</button>
+    </form>
+</div>
+
+<!-------- Footer -------->
+<footer>
+    <p>BeeHive Bank &copy; 2019</p>
+</footer>
+
+</body>
+</html>
